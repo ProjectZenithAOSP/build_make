@@ -569,6 +569,11 @@ function _lunch_meat()
     fixup_common_out_dir
 
     set_stuff_for_environment
+
+    echo "";
+    cat $(gettop)/build/make/zenith_ascii_logo;
+    echo"";
+
     [[ -n "${ANDROID_QUIET_BUILD:-}" ]] || printconfig
 
     if [[ -z "${ANDROID_QUIET_BUILD}" && -z "${ZENITH_BUILD}" ]]; then
