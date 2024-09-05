@@ -508,8 +508,13 @@ function lunch()
     ZENITH_DEVICE=$ZENITH_BUILD
     export ZENITH_DEVICE
 
+    local depsOnly=""
+    if [[ $(find ./device -type d -name "$SUPERIOR_DEVICE" -print -quit) != "" ]]; then
+        depsOnly="true"
+    fi
+
     cd $T > /dev/null
-    vendor/zenith/build/tools/roomservice.py $product
+    vendor/zenith/build/tools/roomservice.py $product $depsOnly
     cd - > /dev/null
 
     _lunch_meat $product $release $variant
